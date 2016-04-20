@@ -8,8 +8,8 @@ Itako Text Transformer Request
   <a href="https://travis-ci.org/itakojs/itako-text-transformer-request">
     <img src="http://img.shields.io/travis/itakojs/itako-text-transformer-request.svg?style=flat-square">
   </a>
-  <a href="https://ci.appveyor.com/project/itakojs/itako-text-transformer-request">
-    <img src="https://img.shields.io/appveyor/ci/itakojs/itako-text-transformer-request.svg?style=flat-square">
+  <a href="https://ci.appveyor.com/project/59naga/itako-text-transformer-request">
+    <img src="https://img.shields.io/appveyor/ci/59naga/itako-text-transformer-request.svg?style=flat-square">
   </a>
   <a href="https://codeclimate.com/github/itakojs/itako-text-transformer-request/coverage">
     <img src="https://img.shields.io/codeclimate/github/itakojs/itako-text-transformer-request.svg?style=flat-square">

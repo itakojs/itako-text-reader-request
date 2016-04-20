@@ -3,12 +3,23 @@
 * @returns {object} output
 */
 export default class ItakoTextTransformerRequest {
+  /**
+  * @constructor
+  * @param {string} type - a transform target
+  * @param {object} options - a transformer options
+  */
   constructor(type = 'text', options = {}) {
     this.name = 'request';
     this.type = type;
     this.options = options;
   }
 
+  /**
+  * @method transform
+  * @param {tokens[]} tokens - a original token
+  * @param {object} [requestOptions={}] - a transformer options (via itako.option)
+  * @returns {tokens[]} tokens - the transformed tokens or ignore
+  */
   transform(tokens, requestOptions = {}) {
     const opts = Object.assign({
       baseUrl: '',
