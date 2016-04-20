@@ -21,9 +21,8 @@ describe('ItakoTextTransformerRequest', () => {
       const expectedTokens = [{
         type: 'audio',
         value: {
-          url: 'greeting',
           method: 'GET',
-          data: {},
+          url: 'greeting',
         },
         options: {},
         meta: {
@@ -57,12 +56,8 @@ describe('ItakoTextTransformerRequest', () => {
       const expectedTokens = [{
         type: 'audio',
         value: {
-          url: 'greeting',
+          url: 'greeting?pitch=2&volume=0.5',
           method: 'GET',
-          data: {
-            pitch: 2,
-            volume: 0.5,
-          },
         },
         options: {},
         meta: {
@@ -96,8 +91,7 @@ describe('ItakoTextTransformerRequest', () => {
       const actualTokens = transform('greeting', {}, {
         textAs: 'text',
       });
-      assert(actualTokens[0].value.url === '');
-      assert(actualTokens[0].value.data.text === 'greeting');
+      assert(actualTokens[0].value.url === '?text=greeting');
     });
 
     it('if specify defaults, it should define a token default values', () => {
@@ -108,8 +102,7 @@ describe('ItakoTextTransformerRequest', () => {
           },
         },
       });
-      assert(actualTokens[0].value.url === 'greeting');
-      assert(actualTokens[0].value.data.speaker === 'hikari');
+      assert(actualTokens[0].value.url === 'greeting?speaker=hikari');
     });
 
     it('if specify beforeTransform, it should call as an function before transform', () => {
@@ -122,8 +115,7 @@ describe('ItakoTextTransformerRequest', () => {
           token.setOptions(opts);
         },
       });
-      assert(actualTokens[0].value.url === 'greeting');
-      assert(actualTokens[0].value.data.volume === 100);
+      assert(actualTokens[0].value.url === 'greeting?volume=100');
     });
 
     it('use all of the above-mentioned options', () => {

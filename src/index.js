@@ -1,3 +1,5 @@
+import qs from 'qs';
+
 /**
 * @module ItakoTextTransformerRequest
 * @returns {object} output
@@ -54,12 +56,23 @@ export default class ItakoTextTransformerRequest {
         url += encodeURIComponent(text);
       }
 
-      const value = Object.assign({}, opts.defaults, {
+      const axiosOptions = Object.assign({}, opts.defaults, {
         method,
         url,
-        data,
       });
-      return new sourceToken.constructor(opts.toType, value, {}, { transformer: this });
+
+      // quote by https://github.com/mzabriskie/axios#request-config
+      // > `data` is the data to be sent as the request body
+      // > Only applicable for request methods 'PUT', 'POST', and 'PATCH'
+      // > When no `transformRequest` is set, must be a string, an ArrayBuffer or a hash
+      if (['PUT', 'POST', 'PATCH'].indexOf(method.toUpperCase()) > -1) {
+        axiosOptions.data = data;
+      } else {
+        const params = qs.stringify(data);
+        axiosOptions.url += params.length ? `?${params}` : '';
+      }
+
+      return new sourceToken.constructor(opts.toType, axiosOptions, {}, { transformer: this });
     });
   }
 }
