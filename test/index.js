@@ -86,10 +86,10 @@ describe('ItakoTextTransformerRequest', () => {
     });
 
     it('if specify baseUrl, should use as url prefix', () => {
-      const actualTokens = transform('greeting', {}, {
+      const actualTokens = transform('はろわ', {}, {
         baseUrl: 'https://api.voicetext.jp/v1/tts?text=',
       });
-      assert(actualTokens[0].value.url === 'https://api.voicetext.jp/v1/tts?text=greeting');
+      assert(actualTokens[0].value.url === 'https://api.voicetext.jp/v1/tts?text=%E3%81%AF%E3%82%8D%E3%82%8F');
     });
 
     it('if specify textAs, it should define a token value as a url parameter', () => {

@@ -51,7 +51,7 @@ export default class ItakoTextTransformerRequest {
       if (opts.textAs.length) {
         data[opts.textAs] = text;
       } else {
-        url += text;
+        url += encodeURIComponent(text);
       }
 
       const value = Object.assign({}, opts.defaults, {
