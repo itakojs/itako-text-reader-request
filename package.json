@@ -1,7 +1,7 @@
 {
   "name": "itako-text-transformer-request",
   "description": "itako-v0 axios plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib",
   "files": [
     "lib"
