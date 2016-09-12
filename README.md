@@ -34,9 +34,9 @@ Usage
 to convert the token to the parameter of [axios](https://github.com/mzabriskie/axios#request-config). request-token is available in [audio-reader](https://github.com/itakojs/itako-audio-reader-audio-context), [etc](https://www.npmjs.com/browse/keyword/itako-audio-reader).
 
 ```html
-<script src="https://npmcdn.com/itako"></script>
-<script src="https://npmcdn.com/itako-audio-reader-audio-context"></script>
-<script src="https://npmcdn.com/itako-text-transformer-request"></script>
+<script src="https://unpkg.com/itako"></script>
+<script src="https://unpkg.com/itako-audio-reader-audio-context"></script>
+<script src="https://unpkg.com/itako-text-transformer-request"></script>
 <script>
 var reader = new ItakoAudioReaderAudioContext();
 var transformer = new ItakoTextTransformerRequest('text', {
